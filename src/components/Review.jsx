@@ -5,10 +5,11 @@ import Rating from "./Rating"
 
 function Review() {
   function Reviews() {
+    return (
   const [reviews, setReviews] = useState(() => {
     const savedReviews = localStorage.getItem("reviews");
 
-    return savedReviews ? JSON.parse(savedReviews) : [];
+    return savedReviews ? JSON.parse(savedReviews) : [];)
   });
 
 
