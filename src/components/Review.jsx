@@ -1,19 +1,24 @@
-import { useRef, useState } from "react"
+import {  useState } from "react"
 
 import Input from "./Input"
 import Rating from "./Rating"
 
 function Review() {
   let [rating, setRating] = useState(0)
-  let formRef=useRef(null)
+  // let formRef=useRef(null)
+  let  [review, setReview] = useState("")
+  let [name, setName] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log("submitted successfully")
     console.log(rating)
-    
-    setRating("")
-  }
+    console.log(review)
+    setRating(0)
+    setReview ("")
+    setName("")
+
+  } 
 
   return (
     <div className="min-h-screen w-full flex justify-center items-center px-6">
@@ -28,14 +33,17 @@ function Review() {
         <Input
           type="text"
           name="name"
-          ref={formRef}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          // ref={formRef}
           placeholder="Enter your name (optional)"
           className="w-full border border-white/30 text-white rounded-md p-3"
         />
 
         <textarea
           name="review"
-          ref={formRef}
+          value={review}
+          onChange={(e) => setReview(e.target.value)}
           placeholder="Enter your review"
           className="w-full h-48 border border-white/30 text-white rounded-md p-3 resize-none"
         />
