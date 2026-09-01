@@ -1,19 +1,33 @@
-import {  useState } from "react"
+import {  useEffect, useState } from "react"
 
 import Input from "./Input"
 import Rating from "./Rating"
 
 function Review() {
+  function Reviews() {
+  const [reviews, setReviews] = useState(() => {
+    const savedReviews = localStorage.getItem("reviews");
+
+    return savedReviews ? JSON.parse(savedReviews) : [];
+  });
+
+
   let [rating, setRating] = useState(0)
   // let formRef=useRef(null)
   let  [review, setReview] = useState("")
   let [name, setName] = useState("")
-
+    useEffect(() => {
+    localStorage.setItem("reviews", JSON.stringify(reviews));
+  }, [reviews]);
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("submitted successfully")
-    console.log(rating)
-    console.log(review)
+    const newReview = {
+      id: Date.now(),
+      name: name,
+      review: review,
+      rating: Number(rating)
+    };
+    setReviews([...reviews, newReview]);
     setRating(0)
     setReview ("")
     setName("")
