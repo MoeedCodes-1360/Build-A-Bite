@@ -1,6 +1,6 @@
 # 🍔 Build-a-Bite
 
-A vibrant food and restaurant experience built with React and Vite. This project brings together a menu showcase, restaurant storytelling, and customer review feedback in one clean interface.
+A responsive restaurant ordering experience built with React and Vite. Build-a-Bite combines a food menu, Redux-powered cart, order confirmation flow, restaurant storytelling, and locally saved customer reviews.
 
 <div align="center">
 
@@ -12,12 +12,13 @@ A vibrant food and restaurant experience built with React and Vite. This project
 
 ## ✨ Overview
 
-Build-a-Bite is a modern restaurant landing app designed to feel fun, rich, and appetizing. It includes:
+Build-a-Bite is a front-end restaurant app designed to make browsing and ordering feel quick and appetizing. It includes:
 
 - 🍽️ a restaurant-style menu experience
-- 🧾 customer review submission and rating flow
+- 🛒 a shopping cart with quantity controls and order confirmation
+- 🧾 customer review submission and star-rating flow
 - 🏪 branded storytelling sections about the business
-- 🧭 intuitive navigation between pages
+- 🧭 route-based navigation between pages
 - 📱 responsive layout that adapts well to different screen sizes
 
 ## 🌮 Why this app?
@@ -30,17 +31,20 @@ The experience is built around the idea that eating should feel memorable, satis
 |---|---|---|
 | Restaurant Branding | Strong, appetizing visual design with a modern foodie aesthetic | 🍔 |
 | Menu Showcase | Product cards present food items in a clean and engaging layout | 🍽️ |
-| Reviews | Users can leave ratings and write feedback | ⭐ |
+| Shopping Cart | Add menu items, adjust quantities, remove items, and view totals | 🛒 |
+| Order Confirmation | Confirm an order and return to the menu | ✅ |
+| Reviews | Users can leave ratings and write feedback saved in local storage | ⭐ |
 | Storytelling Pages | About section explains the brand and mission | 🧡 |
 | Responsive UI | Mobile-friendly layout for a smoother browsing experience | 📱 |
-| React Router | Multi-page navigation using route-based structure | 🧭 |
+| Client-side Routing | Navigate between home, about, menu, review, and cart routes | 🧭 |
 
 ## 🧱 Tech Stack
 
 - React 19
 - Vite
 - React Router DOM
-- Tailwind CSS
+- Tailwind CSS 4
+- Redux Toolkit and React Redux
 - JavaScript
 
 ## 📁 Project Structure
@@ -69,8 +73,22 @@ BuildABite/
 - `Main` — landing page content and highlights
 - `About` — brand story and mission
 - `Menu` — product listing grid
+- `Card` — individual menu item and add-to-cart action
+- `Cart` — cart quantities, totals, removal, and order confirmation
 - `Review` — customer review form with star rating
 - `Footer` — closing navigation and contact section
+
+## 🗺️ Routes
+
+| Path | Page |
+|---|---|
+| `/` | Home page |
+| `/about` | Restaurant story |
+| `/menu` | Menu and add-to-cart actions |
+| `/cart` | Cart and order confirmation |
+| `/review` | Review and rating form |
+
+Cart state is managed with Redux Toolkit. Submitted reviews are persisted in the browser's `localStorage`; there is no backend or payment processing yet.
 
 ## 🏁 Getting Started
 
@@ -124,15 +142,14 @@ The UI leans into a premium casual dining vibe using rich tones, layered cards, 
 
 ## 💡 Future Enhancements
 
-- 🛒 cart and checkout flow
-- 💳 real order management
-- 🧾 persistent review storage
+- 💳 payment and real order management
+- ☁️ server-backed review storage
 - 🖼️ food image gallery
 - 🧠 search and filtering for menu items
 
 ## 📘 Notes
 
-This project is a front-end experience focused on style, structure, and usability. It’s a strong foundation for expanding into a larger food ordering or restaurant brand platform.
+This project is a front-end experience focused on style, structure, and usability. Orders and reviews are currently handled in the browser, making it a strong foundation for connecting a backend or payment provider later.
 
 ## 🙌 Project Status
 
